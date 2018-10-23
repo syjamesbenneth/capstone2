@@ -4,7 +4,7 @@
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse text-right" id="navbar">
-		<ul class="navbar-nav m1-auto">
+		<ul class="navbar-nav ml-auto">
 		<li class="nav-item">
 			<a class="nav-link" href="../views/catalog.php">
 				Catalog
