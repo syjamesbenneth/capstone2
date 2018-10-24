@@ -3,7 +3,8 @@
 ?>
 <?php
    function get_page_content(){ 
-      require_once "../controllers/connect.php"
+      // require_once "../controllers/connect.php"
+      global $conn;
       ?>
       <div class="container-fluid" id="page-catalog">
          <div class="row">
@@ -86,6 +87,6 @@
             </div>
          </div>
       </div>
-<?php mysqli_close($conn);
+<?php //mysqli_close($conn);
    }
 ?>
