@@ -80,8 +80,56 @@ $(document).on("DOMContentLoaded", ()=> {
 				}
 			});
 		}
+
+	});
+	//login
+	$('#login').click((e)=>{
+		let username = $('#username').val();
+		let password = $('#password').val();
+		// alert(username);
+		// alert(password);
+		$.ajax({
+			"url":"../controllers/authenticate.php",
+			"type":"POST",
+			"data": {
+				'username': username,
+				'password': password
+			},
+			"success":(data) => {
+				// alert(data);
+				if(data == "login_failed"){
+					$("#username").next().text("Please provide correct credentials");
+				} else {
+					window.location.replace("../../index.php");
+				}
+			}
+		});
+	})
+	//prep for add to cart: turning off the default behavior and over riding with our own
+	$(document).off('click', '.add-to-cart').on('click', '.add-to-cart',(e)=> {
+		e.stopPropagation(); // prevents parent elements to be triggered
+		let item_id = $(e.target).attr('data-id');
+		// alert(item_id);
+		
+		let item_quantity = parseInt($(e.target).prev().val());
+		// alert("ID: " + item_id + " Quantity ordered: " + item_quantity);
+
+		$.ajax({
+			"url":"../controllers/update_cart.php",
+			"data": {
+				'item_id' : item_id,
+				'item_quantity' : item_quantity
+			},
+			"type":"POST",
+			"success": (dataFromController) => {
+				$("#cart-count").text(dataFromController);
+				$(e.target).prev().val('');
+			}
+		})
 	});
 });
+
+
 
 
 // let name = /^[a-zA-z]+$/; //regular expression / or regex / is a writing notation to create a pattern for your code to 

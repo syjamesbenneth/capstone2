@@ -63,7 +63,7 @@
                      echo "<div class='row'>";
                      foreach ($items as $item){ ?>
                         <div class="col-sm-3 py-2">
-                           <div class="card h-100">
+                           <div class="card h-100" style="color: red;">
                               <img class="card-img-top" src="<?php echo $item['image_path'];?>">
                               <div class="card-body">
                                  <h4 class="card-title">
@@ -76,7 +76,7 @@
                                  </p>
                               </div>
                               <div class="card-footer">
-                                 <input type="number" class="form-control" value=1><button type="submit" class="btn btn-outline-primary add-to-cart" data-id="<?php echo $item['id'];?>">Add to cart</button>
+                                 <input type="number" class="form-control" value=><button type="submit" class="btn btn-outline-primary add-to-cart" data-id="<?php echo $item['id'];?>">Add to cart</button>
                               </div>
                            </div>
                         </div>
@@ -89,4 +89,8 @@
       </div>
 <?php //mysqli_close($conn);
    }
+   function getTitle(){
+      echo "Catalog";
+   }
+   
 ?>
