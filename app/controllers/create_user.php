@@ -10,16 +10,12 @@
 
 	$sql_query = "SELECT * FROM users WHERE username = '$username'";
 	$result = mysqli_query($conn, $sql_query);
-
-	if(mysqli_num_rows($result)>0) {
+	if (mysqli_num_rows($result) > 0){
 		die("user_exists");
 	} else {
-		$insert_query = "INSERT INTO users(username, password, firstname, lastname, email, address) VALUES('$username', '$password', '$firstname', '$lastname', '$email', '$address');";
-		// echo $insert_query;
+		$insert_query = "INSERT INTO users(username, password, firstname, lastname, email, address) VALUES ('$username', '$password', '$firstname', '$lastname', '$email', '$address');";
 		$result = mysqli_query($conn, $insert_query);
-		// if(!$result) {
-		// 	echo mysqli_error($conn);
-		// }
 	}
+
 	mysqli_close($conn);
- ?>
+?>

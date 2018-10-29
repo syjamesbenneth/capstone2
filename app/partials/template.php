@@ -27,6 +27,35 @@
 <link rel="stylesheet" type="text/css" href="../assets/styles/style.css">
 
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="../assets/styles/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="../assets/styles/icomoon.css">
+	<!-- Ion Icon Fonts-->
+	<link rel="stylesheet" href="../assets/styles/ionicons.min.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="../assets/styles/bootstrap.min.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="../assets/styles/magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="../assets/styles/flexslider.css">
+
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="../assets/styles/owl.carousel.min.css">
+	<link rel="stylesheet" href="../assets/styles/owl.theme.default.min.css">
+	
+	<!-- Date Picker -->
+	<link rel="stylesheet" href="../assets/styles/bootstrap-datepicker.css">
+	<!-- Flaticons  -->
+	<!-- <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css"> -->
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="../assets/styles/style.css">
+
+	
 <head>
 	<title>Vape Izzy</title>
 </head>

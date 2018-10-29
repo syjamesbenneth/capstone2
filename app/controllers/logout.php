@@ -1,10 +1,8 @@
-<?php 
-	//destroy all sessions
+<?php
+// Destroy all sessions
+session_start();
+session_destroy();
 
-	session_start();
-	session_destroy();
-
-	//route user to landing page
-	header("Location:../index.php");
-
- ?>
+// Route user to landing page
+header('location: ../index.php');
+?>

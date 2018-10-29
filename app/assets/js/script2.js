@@ -126,13 +126,13 @@ $(document).on("DOMContentLoaded", () => {
 	$(document).off('click', '.add-to-cart').on('click', '.add-to-cart', (e)=>{
 		e.stopPropagation(); //prevents parent elements to be triggered.
 		let item_id = $(e.target).attr('data-id');
-		let item_quantity = parseInt($(e.target).prev().val());
+		let quantity = parseInt($(e.target).prev().val());
 
 		$.ajax({
 			"url":"../controllers/update_cart.php",
 			"data":{
 				'item_id':item_id,
-				'item_quantity': item_quantity,
+				"quantity":quantity,
 				'update_flag': 0
 			},
 			"type":"POST",
@@ -142,6 +142,7 @@ $(document).on("DOMContentLoaded", () => {
 			}
 		});
 	});
+
 	function getTotal(){
 		let total = 0;
 		$('.item_subtotal').each(function(e){
@@ -158,13 +159,15 @@ $(document).on("DOMContentLoaded", () => {
 		subTotal = quantity * price;
 		$(e.target).parents('tr').find('.item_subtotal').text(subTotal.toFixed(2));
 		getTotal();
+
 		$.ajax({
 			"type": "POST",
 			"url": "../controllers/update_cart.php",
 			"data":{
 				'item_id':item_id,
-				'item_quantity':quantity,
-				'update_flag':1
+				// 'item_quantity':quantity,
+				"quantity":quantity,
+				'update_flag':true
 			},
 			"success": (data) => {
 				$("#cart-count").text(data);
