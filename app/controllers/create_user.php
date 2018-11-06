@@ -16,6 +16,12 @@
 		$insert_query = "INSERT INTO users(username, password, firstname, lastname, email, address) VALUES ('$username', '$password', '$firstname', '$lastname', '$email', '$address');";
 		$result = mysqli_query($conn, $insert_query);
 	}
+	//sql_query2= "SELECT * FROM users WHERE username = $username'";
+	//$result = mysqli_query($conn, $sql_query);
+	//$user_info =  mysqli_fetch_assoc($result);
+	//$_SESSION['user'] = $user_info;
 
 	mysqli_close($conn);
+
+	//header("Location: ../views/catalog.php");
 ?>

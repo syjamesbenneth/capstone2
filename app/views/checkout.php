@@ -16,12 +16,7 @@ function get_page_content(){
 					<div class="form-group">
 						<input type="text" class="form-control" name="addressLine1" placeholder="Address Line 1">
 					</div>
-					<div class="form-group">
-						<input type="text" class="form-control" name="addressLine2" placeholder="Address Line 2">
-					</div>
-					<div class="form-group">
-						<input type="text" class="form-control" name="addressLine3" placeholder="Address Line 3">
-					</div>
+					
 				</div>
 			</div>
 			<div class="row">

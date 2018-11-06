@@ -95,6 +95,8 @@ $(document).on("DOMContentLoaded", () => {
 				"success":(data) => {
 					if (data == "user_exists"){
 						$("#username").next().text("Username already exists");
+					} else {
+						window.location.href=("../../views/catalog.php");
 					}
 				}
 			});
@@ -192,3 +194,6 @@ $(document).on("DOMContentLoaded", () => {
 		});
 	});
 });
+
+// Carousel
+$('.carousel').carousel();

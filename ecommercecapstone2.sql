@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
+-- version 4.8.2
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 29, 2018 at 03:16 AM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 7.0.8
+-- Host: 127.0.0.1
+-- Generation Time: Oct 30, 2018 at 02:23 AM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ecommercecapstone2`
+-- Database: `cp2_ecommerce`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `Categories` (
@@ -32,19 +34,19 @@ CREATE TABLE `Categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `Categories` (`id`, `name`) VALUES
-(1, 'Mods'),
-(2, 'Juice'),
+(1, 'Card Game'),
+(2, 'Board Game'),
 (3, 'Accessories'),
-(4, 'Atomizers');
+(4, 'Tables');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Items`
+-- Table structure for table `items`
 --
 
 CREATE TABLE `Items` (
@@ -53,50 +55,41 @@ CREATE TABLE `Items` (
   `description` varchar(255) NOT NULL,
   `image_path` varchar(255) NOT NULL,
   `price` decimal(18,2) NOT NULL,
-  `category_id` int(255) NOT NULL
+  `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Items`
+-- Dumping data for table `items`
 --
 
 INSERT INTO `Items` (`id`, `name`, `description`, `image_path`, `price`, `category_id`) VALUES
-(1, 'Aegis Legend Mod', 'Mod', '../assets/images/aegis.jpg', '2300.00', 1),
-(2, 'Silvisworks', 'Juice', '../assets/images/silvisworks.jpg', '250.00', 2),
-(3, 'iClouds', 'juice', '../assets/images/iclouds.jpg', '300.00', 2),
-(4, 'Coil kit', 'Complete tools for coiling', '../assets/images/coilkit.jpg', '350.00', 3),
-(5, 'Wismec Active', 'Wismec Active with bluetooth speaker', '../assets/images/wismecactive.jpg', '2500.00', 1),
-(6, 'VapeBreedV2', 'Atomizer', '../assets/images/vapebreedv2.jpg', '300.00', 4),
-(7, 'Minifit Pod', 'Chill vaping now made affordable', '../assets/images/minifitpods.jpg', '800.00', 1),
-(8, 'Nitro Juice', 'NFS Nitro', '../assets/images/nfsnitrojuice.jpg', '300.00', 2),
-(9, 'Sony VTC Batteries', '1 Pair', '../assets/images/sonyvtc.jpg', '300.00', 3),
-(10, 'US1 V2 RDA', 'Available in RAINBOW color', '../assets/images/us1v2rda.jpg', '500.00', 4),
-(11, 'Goon RDA', 'Gold, Silver & Black', '../assets/images/goonrda.jpg', '250.00', 4),
-(12, 'Ceramic Tweezers', 'Make your coiling and wicking life easier', '../assets/images/ceramictweezers.jpg', '250.00', 3),
-(13, 'Limitless RDTA', 'Tank / Dripper Hybrid', '../assets/images/limitlessrdta.jpg', '1500.00', 4);
+(1, 'Darna', 'Darna Card Game', '../assets/images/darna.jpg', '150.00', 1),
+(2, 'Clank', 'Clank Board Game', '', '3000.00', 2),
+(3, 'Ticket to ride', 'Ticket to ride Board Game', '', '2500.00', 2),
+(4, 'Dice Set', 'Dice set', '', '800.00', 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Orders`
+-- Table structure for table `orders`
 --
 
-CREATE TABLE `Orders` (
+CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `transaction_code` varchar(255) NOT NULL,
-  `purchase_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `status_id` int(255) NOT NULL,
-  `payment_mode_id` int(255) NOT NULL
+  `purchase_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status_id` int(11) NOT NULL,
+  `payment_mode_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Orders_item`
+-- Table structure for table `orders_items`
 --
 
-CREATE TABLE `Orders_item` (
+CREATE TABLE `orders_items` (
   `id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `item_id` int(11) NOT NULL,
@@ -112,13 +105,13 @@ CREATE TABLE `Orders_item` (
 
 CREATE TABLE `payment_modes` (
   `id` int(11) NOT NULL,
-  `namr` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Statuses`
+-- Table structure for table `statuses`
 --
 
 CREATE TABLE `Statuses` (
@@ -134,10 +127,10 @@ CREATE TABLE `Statuses` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -146,38 +139,42 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `firstname`, `lastname`, `email`, `address`) VALUES
-(1, 'bvera', '$2y$10$5ocCQk4gpC2xctCYjUnha.l0WdyvCXdWqylFyd7TxUmZvRX5e6hJK', 'Brandon', 'Vera', 'test@mail.com', '1234 Test'),
-(2, 'bvera2', '$2y$10$Vmfxhv.epm3zkGr9GYap9e7VNv0HG18Rgyi4o7lPqrHsoQxVzGQc6', 'Brandon', 'Vera', 'test@mail.com', '1234 Test'),
-(3, 'annieareyouokay', '$2y$10$Td65M9iVIxP5KhVpGd.CCObKc/RWCR/oxAkNWQ1Ei4pqUE1cqUn.G', 'test123', 'test123', 'test123@test.com', 'test');
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `email`, `address`) VALUES
+(1, 'Brandon', 'Vera', 'bvera', '$2y$10$5o/30veB2YxtFWMBkAiSSuupvf4UbACn/mYq9V4X7Enup3fbFZiB.', 'test@mail.com', '123 sample road');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `Categories`
+-- Indexes for table `categories`
 --
 ALTER TABLE `Categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `Items`
+-- Indexes for table `items`
 --
 ALTER TABLE `Items`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `items_fk0` (`category_id`);
 
 --
--- Indexes for table `Orders`
+-- Indexes for table `orders`
 --
-ALTER TABLE `Orders`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `orders_fk0` (`user_id`),
+  ADD KEY `orders_fk1` (`status_id`),
+  ADD KEY `orders_fk2` (`payment_mode_id`);
 
 --
--- Indexes for table `Orders_item`
+-- Indexes for table `orders_items`
 --
-ALTER TABLE `Orders_item`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `orders_items`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `orders_items_fk0` (`order_id`),
+  ADD KEY `orders_items_fk1` (`item_id`);
 
 --
 -- Indexes for table `payment_modes`
@@ -186,7 +183,7 @@ ALTER TABLE `payment_modes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `Statuses`
+-- Indexes for table `statuses`
 --
 ALTER TABLE `Statuses`
   ADD PRIMARY KEY (`id`);
@@ -202,25 +199,73 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `Categories`
+-- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `Categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
--- AUTO_INCREMENT for table `Items`
+-- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `Items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
--- AUTO_INCREMENT for table `Orders_item`
+-- AUTO_INCREMENT for table `orders`
 --
-ALTER TABLE `Orders_item`
+ALTER TABLE `orders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orders_items`
+--
+ALTER TABLE `orders_items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `payment_modes`
+--
+ALTER TABLE `payment_modes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `statuses`
+--
+ALTER TABLE `Statuses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `items`
+--
+ALTER TABLE `Items`
+  ADD CONSTRAINT `items_fk0` FOREIGN KEY (`category_id`) REFERENCES `Categories` (`id`);
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_fk0` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `orders_fk1` FOREIGN KEY (`status_id`) REFERENCES `Statuses` (`id`),
+  ADD CONSTRAINT `orders_fk2` FOREIGN KEY (`payment_mode_id`) REFERENCES `payment_modes` (`id`);
+
+--
+-- Constraints for table `orders_items`
+--
+ALTER TABLE `orders_items`
+  ADD CONSTRAINT `orders_items_fk0` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
+  ADD CONSTRAINT `orders_items_fk1` FOREIGN KEY (`item_id`) REFERENCES `Items` (`id`);
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

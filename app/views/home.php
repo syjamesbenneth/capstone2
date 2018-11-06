@@ -162,28 +162,39 @@
     </div>
  -->
 
+<body style="background-image: url('../assets/images/bg1.jpg')";>
+<div class="row container-fluid" style="margin-left: 80px;">
+  <div class="row">
+  <div class="col-sm-12 col-md-6" style="background-color:#aaa, ;">
+    <h2> </h2>
+    <p style="margin-left: 100px; margin-right: 10px"><img src="../assets/images/img_bg_2.jpg" style="height: 400px; width: 400px;"></p>
+  </div>
 
-<div class="row container-fluid">
+  <div class="col-sm-12 col-md-6" style="height: 400px; width: 400px;">
+    <h2> </h2>
+    <p style=""><img src="../assets/images/17265117_1890454451176833_3551254666898924083_n.jpg" style="height: 400px; width: 400px;"></p>
+  </div>
+
+  <div>
+    
+
+  </div>
+
+  <div class="col-sm-12 col-md-6">
+    <h2> </h2>
+    <p style="margin-left: 400px"><img src="../assets/images/welcome.jpg" style="height: 400px; width: 650px;""></p>
+  </div>
+
+
+
+  <div class="bg-white" style="height: 400px;"">
   
-  <div class="column" style="background-color:#aaa, ;">
-    <h2> </h2>
-    <p style="margin-left: 100px; margin-right: 10px"><img src="../assets/images/img_bg_2.jpg" style="height:400px; width: 350px;"></p>
-  </div>
 
-  <div class="column" style="background-color:#aaa, ;">
-    <h2> </h2>
-    <p style="margin-left: 10px; "><img src="../assets/images/17265117_1890454451176833_3551254666898924083_n.jpg" style="height:400px; width: 400px;"
-    ></p>
-  </div>
-
-  <div class="column" style="background-color:#aaa, ;">
-    <h2> </h2>
-    <p style="margin-left: 10px"><img src="../assets/images/img_bg_3.jpg" style="height:400px; width: 350px;"></p>
-  </div>
 </div>
-
-<!-- 
-<div class="owl-carousel owl-theme">
+</div>
+</div>
+</body>
+<!-- <div class="owl-carousel owl-theme">
     <div class="item" style="width:250px"><h4>1</h4></div>
     <div class="item" style="width:100px"><h4>2</h4></div>
     <div class="item" style="width:500px"><h4>3</h4></div>
@@ -216,3 +227,4 @@
 </div> -->
 
 <?php } ?>
+
