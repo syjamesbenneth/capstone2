@@ -112,4 +112,4 @@
         </div>
       </footer>
 
-      <script type="text/javascript" src="../assets/js/script.js"></script>
+      <script src="../assets/js/script.js"></script>
