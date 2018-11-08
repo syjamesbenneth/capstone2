@@ -57,11 +57,11 @@ $(document).on("DOMContentLoaded", () => {
 			$('#lastname').next().text('');
 		}
 		//confirm password
-		if($("#password").val() !== $("#confirm_password").val()){
-			$('#confirm_password').next().text("Passwords should match");
+		if($("#password").val() !== $("#confirmpw").val()){
+			$('#confirmpw').next().text("Passwords should match");
 			errors++;
 		} else {
-			$("#confirm_password").next().text();
+			$("#confirmpw").next().text();
 		}
 
 		if(errors > 0){
@@ -72,36 +72,31 @@ $(document).on("DOMContentLoaded", () => {
 	}
 
 	//actual registration
-	$("#add_user").click((e) => {
-		if(validate_registration_form()){
-			let username = $("#username").val();
-			let password = $("#password").val();
-			let firstname = $("#firstname").val();
-			let lastname = $("#lastname").val();
-			let email = $("#email").val();
-			let address = $("#address").val();
+	$('#add_user').click((e)=>{
+	if(validate_registration_form()){
+	// 
+	let username = $('#username').val();
+	let password = $('#password').val();
+	let firstname= $('#firstname').val();
+	let lastname = $('#lastname').val();
+	let email    = $('#email').val();
+	let address  = $('#address').val();
 
-			$.ajax({
-				"url":'../controllers/create_user.php',
-				"type": "POST",
-				"data":{
-					'username':username,
-					'password':password,
-					'firstname':firstname,
-					'lastname':lastname,
-					'email':email,
-					'address':address
-				},
-				"success":(data) => {
-					if (data == "user_exists"){
-						$("#username").next().text("Username already exists");
-					} else {
-						window.location.href=("../../views/catalog.php");
-					}
-				}
-			});
+	$.ajax({
+		"url":"../controllers/create_user.php",
+		"type":"POST",
+		"data":{"username":username,"password":password,"firstname":firstname,"lastname":lastname,"email":email,"address":address},
+		"success":(data)=>{			
+			if(data=="user_exists"){
+				$("#username").next().text("Username already exists");
+
+			}else{
+				window.location.href="../views/catalog.php";
+			}
 		}
 	});
+}
+});
 
 	//login and session
 	$("#login").click((e) => {

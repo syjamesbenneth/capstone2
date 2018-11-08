@@ -1,5 +1,6 @@
 <?php require_once "../partials/template.php" ?>
 <?php function get_page_content() { ?>
+<?php if(isset($_SESSION['user']) && $_SESSION['user']['role_id'] == 1) { ?>
 <?php global $conn; ?>
 <div class="container"> 
 	<div class="row">
@@ -43,5 +44,10 @@
 		</div>
 	</div>
 </div>
+
+<?php } else {
+    header("Location: ./error.php");
+}
+?>
 
 <?php } ?>

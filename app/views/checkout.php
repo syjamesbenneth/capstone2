@@ -1,6 +1,7 @@
 <?php require_once "../partials/template.php";
-function get_page_content(){
-	global $conn; ?>
+function get_page_content(){ ?>
+<?php if(isset($_SESSION['user']) && $_SESSION['user']['role_id'] == 2) { ?>
+<?php global $conn; ?>
 	<?php
 		if (!isset($_SESSION['user'])){
 			header("Location: login.php");
@@ -72,4 +73,8 @@ function get_page_content(){
 			</div>
 		</div>
 	</form>
+	<?php } else {
+    header("Location: ./error.php");
+}
+?>
 <?php }?>

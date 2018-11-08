@@ -1,5 +1,7 @@
 <?php require_once "../partials/template.php";?>
 <?php function get_page_content() {?>
+<?php if(isset($_SESSION['user']) && $_SESSION['user']['role_id'] == 1) { ?>
+
 	<?php global $conn;
 	$item_id=$_GET['id']; 
 	$edit_item_query="SELECT * FROM Items WHERE id = $item_id;";
@@ -59,7 +61,13 @@
 		</div>
 	</div>
 
+	<?php } else {
+    header("Location: ./error.php");
+}
+?>
+
 <?php }
+
 function getTitle(){
 	echo "Edit Item";
 }?>

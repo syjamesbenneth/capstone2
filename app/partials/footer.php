@@ -66,7 +66,7 @@
 
 <!------ Include the above in your HEAD tag ---------->
 
-
+<hr>
 <footer class="section footer-classic context-dark bg-image stick-bottom" style="background: #2d3246;">
         <div class="container-fluid">
           <div class="row row-30">

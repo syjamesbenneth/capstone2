@@ -17,5 +17,5 @@ $category_id=$_POST['category_id'];
  $new_item = "INSERT INTO Items(name,description,price,image_path,category_id)VALUES ('$name','$description','$price','$image','$category_id');";
  mysqli_query($conn,$new_item);
  mysqli_close($conn);
- header('Location:../views/catalog.php');
+ header('Location:../views/items.php');
  ?>

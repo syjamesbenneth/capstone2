@@ -1,5 +1,10 @@
 <?php require_once "../partials/template.php"; ?>
 <?php function get_page_content(){ ?>
+
+	<!-- place checking here -->
+	<!-- admin -->
+	<?php if(isset($_SESSION['user']) && $_SESSION['user']['role_id'] == 1) { ?>
+
 <?php global $conn; ?>
 <div class="container">
 	<div class="row">
@@ -38,8 +43,9 @@
 								<td><?php echo $item['description']; ?></td>
 								<td class="text-center">
 
-								<a href="./edit_item.php?id=<?php echo $item['id']?>" class="btn btn-info">Edit Item</a>
+								<a href="./edit_item.php?id=<?php echo $item['id']?>" class="btn btn-info">Edit Item</a> </td>
 
+								<td>
 								<a href="../controllers/delete_item.php?id=<?php echo $item['id']?>" class="btn btn-danger">Delete Item</a></td>
 							</tr>
 						 <?php }?>
@@ -48,4 +54,9 @@
 		</div>
 	</div>
 </div>
+<!-- place else statement here -->
+<?php } else {
+    header("Location: ./error.php");
+}
+?>
 <?php } ?>

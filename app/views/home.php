@@ -161,7 +161,49 @@
       </div>
     </div>
  -->
+<style type="text/css">
+  
+  #thover{
+  position:fixed;
+  background:#000;
+  width:100%;
+  height:100%;
+  opacity: .6;
+  z-index: -3;
+}
 
+#tpopup{
+  position:absolute;
+  width:600px;
+  height:180px;
+  /*background:#fff;*/
+  left:50%;
+  top:50%;
+  border-radius:5px;
+  padding:60px 0;
+  margin-left:-460px; /* width/2 + padding-left */
+  margin-top:-550px; /* height/2 + padding-top */
+  text-align:center;
+  
+}
+#tclose{
+  position:absolute;
+  background:black;
+  color:white;
+  right:-360px;
+  top:45px;
+  border-radius:50%;
+  width:30px;
+  height:30px;
+  line-height:30px;
+  text-align:center;
+  font-size:8px;
+  font-weight:bold;
+  font-family:'Arial Black', Arial, sans-serif;
+  cursor:pointer;
+  
+}
+</style>
 <body style="background-image: url('../assets/images/bg1.jpg')";>
 <div class="row container-fluid" style="margin-left: 80px;">
   <div class="row">
@@ -193,6 +235,32 @@
 </div>
 </div>
 </div>
+
+<div id="thover"></div>
+
+  <div id="tpopup">
+    <img src="../assets/images/landing.jpg"> 
+
+    <div id="tclose">X</div>    
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+  
+  $("#thover").click(function(){
+    $(this).fadeOut();
+    $("#tpopup").fadeOut();
+  });
+  
+  
+  $("#tclose").click(function(){
+    $("#thover").fadeOut();
+    $("#tpopup").fadeOut();
+  });
+  
+});
+
+</script>
 </body>
 <!-- <div class="owl-carousel owl-theme">
     <div class="item" style="width:250px"><h4>1</h4></div>
