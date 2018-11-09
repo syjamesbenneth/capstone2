@@ -68,34 +68,44 @@
 
 <hr>
 <footer class="section footer-classic context-dark bg-image stick-bottom" style="background: #2d3246;">
-        <div class="container-fluid">
+        <div class="container-fluid img-fluid">
           <div class="row row-30">
             <div class="col-md-4 col-xl-5">
               <div class="pr-xl-4"><a class="brand" href="index.html"></a>
+              <div style="background: grey; width: 50%;">
               <h3>Vape Izzy</h3>
+              </div>
                 <p>Your one stop shop for ANYTHING and EVERYTHING VAPE.</p>
                 <!-- Rights-->
                 <p class="rights"><span>©  </span><span class="copyright-year">2018</span><span> </span><span>Vape Izzy</span><span>. </span><span>All Rights Reserved.</span></p>
               </div>
             </div>
             <div class="col-md-4">
+            <div style="background: grey; width: 50%;">
               <h3>Contacts</h3>
+              </div>
               <dl class="contact-list">
+              <i class="fa fa-address-book" aria-hidden="true"></i>
+
                 <dt>Address:</dt>
                 <dd>1638 Diamante Street, San Andres, Manila</dd>
               </dl>
               <dl class="contact-list">
-                <dt>Email</dt>
+                <i class="fa fa-envelope"></i>
+<dt>Email</dt>
                 <dd><a href="mailto:#">Vapeizzy@gmail.com</a></dd>
               </dl>
               <dl class="contact-list">
-                <dt>Phone:</dt>
+                
+<dt> <i class="fa fa-phone" aria-hidden="true"></i> Phone:  </dt>
                 <dd><a href="tel:#">+639178086093</a>
                 </dd>
               </dl>
             </div>
             <div class="col-md-4 col-xl-3">
+            <div style="background: grey; width: 50%;">
               <h3>Links</h3>
+              </div>
               <ul class="nav-list">
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contacts</a></li>

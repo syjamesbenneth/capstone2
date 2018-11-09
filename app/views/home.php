@@ -181,7 +181,7 @@
   top:50%;
   border-radius:5px;
   padding:60px 0;
-  margin-left:-460px; /* width/2 + padding-left */
+  margin-left:-290px; /* width/2 + padding-left */
   margin-top:-550px; /* height/2 + padding-top */
   text-align:center;
   
@@ -190,7 +190,7 @@
   position:absolute;
   background:black;
   color:white;
-  right:-360px;
+  right:590px;
   top:45px;
   border-radius:50%;
   width:30px;
@@ -204,46 +204,63 @@
   
 }
 </style>
-<body style="background-image: url('../assets/images/bg1.jpg')";>
-<div class="row container-fluid" style="margin-left: 80px;">
-  <div class="row">
-  <div class="col-sm-12 col-md-6" style="background-color:#aaa, ;">
+<body class="container-fluid img-fluid card-img-top"  style="background-image: url('../assets/images/bg1.jpg')";>
+<!-- <div class="row container-fluid img-fluid" style="margin-left: 80px;"> -->
+  
+<div class="row">
+<div class="col-lg-4">
+    <a href="./catalog.php">
+   <div class="card" style="width: 30rem; /*position: relative; float: right;*/">
+    <img class="card-img-top" src="../assets/images/img_bg_2.jpg" alt="Card image cap">
+  </a>
+  </div>
+  </div>
+
+
+<!--   <div class="col-sm-12 col-md-6 img-fluid container-fluid" style="height: 400px; width: 400px;">
     <h2> </h2>
-    <p style="margin-left: 100px; margin-right: 10px"><img src="../assets/images/img_bg_2.jpg" style="height: 400px; width: 400px;"></p>
-  </div>
+    <p style=""><img class="img-fluid"  src="" style="height: 400px; width: 400px;"></p>
+  </div> -->
+  
+<div class="col-lg-4">
 
-  <div class="col-sm-12 col-md-6" style="height: 400px; width: 400px;">
-    <h2> </h2>
-    <p style=""><img src="../assets/images/17265117_1890454451176833_3551254666898924083_n.jpg" style="height: 400px; width: 400px;"></p>
-  </div>
-
-  <div>
-    
-
-  </div>
-
-  <div class="col-sm-12 col-md-6">
-    <h2> </h2>
-    <p style="margin-left: 400px"><img src="../assets/images/welcome.jpg" style="height: 400px; width: 650px;""></p>
-  </div>
-
-
-
-  <div class="bg-white" style="height: 400px;"">
+  <div class="card" style="width: 30rem;">
+  <a href="./catalog.php">
+  <img class="card-img-top" style="height: 22.5rem" src="../assets/images/welcome.jpg" alt="Card image cap"></a>
   
 
 </div>
 </div>
+
+
+<div class="col-lg-4">
+<a href="./catalog.php">
+<div class="card" style="width: 30rem; /*position: relative; float: center;*/">
+  <img class="card-img-top" src="../assets/images/17265117_1890454451176833_3551254666898924083_n.jpg" alt="Card image cap">
+</a>
+
+</div>
+</div>
+</div>
+<!-- 
+<div class="card" >
+  <img class="card-img-bot" style="position: absolute; float: right;" src="../assets/../assets/images/welcome.jpg" alt="Card image cap">
+  
+</div> -->
+
+
+<!-- </div> -->
 </div>
 
-<div id="thover"></div>
+<div >
+<div id="thover" class="text-center"></div>
 
   <div id="tpopup">
-    <img src="../assets/images/landing.jpg"> 
+    <img class="img-fluid card-img-top text-center" src="../assets/images/landing.jpg"> 
 
     <div id="tclose">X</div>    
 </div>
-
+</div>
 <script type="text/javascript">
   $(document).ready(function(){
   

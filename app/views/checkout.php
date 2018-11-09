@@ -19,6 +19,21 @@ function get_page_content(){ ?>
 					</div>
 					
 				</div>
+				<div class="col-sm-4">
+					<h4>Payment Method</h4>
+					<select class="form-control" id = "payment_mode" name_payment_mode>
+					<?php 
+						$payment_mode_query = "SELECT * FROM payment_modes;";
+						$payment_modes = mysqli_query($conn, $payment_mode_query);
+
+						foreach($payment_modes as $payment_mode) {
+							extract($payment_mode);
+							echo "<option value = '$id'>$name</option>";
+						}
+
+					 ?>
+					 </select>
+				</div>
 			</div>
 			<div class="row">
 				<h4>Order Summary</h4>
